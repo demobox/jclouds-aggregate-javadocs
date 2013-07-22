@@ -22,15 +22,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <groupId>org.apache.jclouds</groupId>
         <artifactId>jclouds-project</artifactId>
-        <groupId>org.jclouds</groupId>
         <version>1.7.0-SNAPSHOT</version>
-        <relativePath>../jclouds/project/pom.xml</relativePath>
     </parent>
     <artifactId>jclouds-aggregate-javadocs</artifactId>
     <name>jclouds aggregate Javadocs</name>
     <description>Creates a WAR file containing the jclouds aggregate Javadocs</description>
     <packaging>war</packaging>
+
+    <repositories>
+        <repository>
+            <id>apache-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
        <dependency>
@@ -66,6 +78,15 @@
                     <packagingExcludes>WEB-INF/**</packagingExcludes>
                     <webXml>${project.build.outputDirectory}/web.xml</webXml>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.rat</groupId>
+                <artifactId>apache-rat-plugin</artifactId>
+                <executions>
+                  <execution>
+                    <phase>skip</phase>
+                  </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
