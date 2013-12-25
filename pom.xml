@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.jclouds</groupId>
         <artifactId>jclouds-project</artifactId>
-        <version>1.7.0-SNAPSHOT</version>
+        <version>1.8.0-SNAPSHOT</version>
     </parent>
     <artifactId>jclouds-aggregate-javadocs</artifactId>
     <name>jclouds aggregate Javadocs</name>
