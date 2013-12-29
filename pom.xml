@@ -47,7 +47,7 @@
     <dependencies>
        <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>jclouds-multi</artifactId>
+            <artifactId>jclouds</artifactId>
             <version>${project.version}</version>
             <classifier>javadoc</classifier>
         </dependency>
@@ -63,7 +63,7 @@
                             <goal>unpack-dependencies</goal>
                         </goals>
                         <configuration>
-                            <includeArtifactIds>jclouds-multi</includeArtifactIds>
+                            <includeArtifactIds>jclouds</includeArtifactIds>
                             <includeClassifiers>javadoc</includeClassifiers>
                             <excludes>META-INF/**</excludes>
                         </configuration>
