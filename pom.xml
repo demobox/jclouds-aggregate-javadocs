@@ -31,50 +31,13 @@
     <description>Creates a WAR file containing the jclouds aggregate Javadocs</description>
     <packaging>war</packaging>
 
-    <repositories>
-        <repository>
-            <id>apache-snapshots</id>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <dependencies>
-       <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jclouds</artifactId>
-            <version>${project.version}</version>
-            <classifier>javadoc</classifier>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeArtifactIds>jclouds</includeArtifactIds>
-                            <includeClassifiers>javadoc</includeClassifiers>
-                            <excludes>META-INF/**</excludes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <warSourceDirectory>${project.build.directory}/dependency</warSourceDirectory>
+                    <warSourceDirectory>staging/jclouds/target/site/apidocs</warSourceDirectory>
                     <packagingExcludes>WEB-INF/**</packagingExcludes>
                     <webXml>${project.build.outputDirectory}/web.xml</webXml>
                 </configuration>
